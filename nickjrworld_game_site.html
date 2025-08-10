@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nick Jr World - Play Free Online Games for Kids | NickJrWorld.store</title>
+    <meta name="description" content="Play Nick Jr World online for free! Enjoy educational games featuring your favorite Nick Jr characters. Safe, fun, and engaging games for preschoolers and kids.">
+    <meta name="keywords" content="nickjrworld, nick jr world, nick jr games, kids games online, preschool games, educational games, free online games">
+    <link rel="canonical" href="https://nickjrworld.store/">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Nick Jr World - Free Online Games for Kids">
+    <meta property="og:description" content="Play Nick Jr World online for free! Educational games featuring beloved Nick Jr characters.">
+    <meta property="og:url" content="https://nickjrworld.store/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://nickjrworld.store/og-image.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nick Jr World - Free Online Games for Kids">
+    <meta name="twitter:description" content="Play Nick Jr World online for free! Educational games for preschoolers.">
+    
+    <style>
+        :root {
+            --primary-blue: #007AFF;
+            --secondary-blue: #5AC8FA;
+            --success-green: #34C759;
+            --warning-orange: #FF9500;
+            --error-red: #FF3B30;
+            --purple: #AF52DE;
+            --pink: #FF2D92;
+            --background: #F2F2F7;
+            --surface: #FFFFFF;
+            --text-primary: #1C1C1E;
+            --text-secondary: #8E8E93;
+            --border-color: #C6C6C8;
+            --shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, var(--background) 0%, #E5E5EA 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: var(--surface);
+            box-shadow: 0 2px 10px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo::before {
+            content: "🎮";
+            font-size: 1.2em;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        main {
+            padding: 40px 0;
+        }
+
+        .hero-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-blue), var(--purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .game-container {
+            background: var(--surface);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        .game-iframe-wrapper {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin-bottom: 25px;
+            border-radius: 15px;
+            overflow: hidden;
+            background: var(--background);
+        }
+
+        .game-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 15px;
+        }
+
+        .play-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--success-green), #30D158);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(52, 199, 89, 0.3);
+        }
+
+        .play-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(52, 199, 89, 0.4);
+        }
+
+        .play-button::before {
+            content: "▶️";
+        }
+
+        .content-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .info-card {
+            background: var(--surface);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px var(--shadow);
+            border: 1px solid var(--border-color);
+        }
+
+        h2 {
+            color: var(--primary-blue);
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .game-details h2::before {
+            content: "🎯";
+        }
+
+        .features h2::before {
+            content: "✨";
+        }
+
+        .safety h2::before {
+            content: "🛡️";
+        }
+
+        .how-to-play h2::before {
+            content: "🎮";
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 8px 0;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 25px;
+        }
+
+        li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--success-green);
+            font-weight: bold;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: var(--surface);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 3px 15px var(--shadow);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        footer {
+            background: var(--text-primary);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 20px;
+            }
+
+            .content-section {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .game-container {
+                padding: 20px;
+                margin: 0 -10px 30px -10px;
+            }
+
+            .container {
+                padding: 0 15px;
+            }
+
+            h1 {
+                margin-bottom: 15px;
+            }
+
+            .subtitle {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .game-iframe-wrapper {
+                padding-bottom: 75%; /* More square aspect ratio for mobile */
+            }
+
+            .play-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Loading animation */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+            color: var(--text-secondary);
+        }
+
+        .loading::after {
+            content: "";
+            width: 30px;
+            height: 30px;
+            border: 3px solid var(--border-color);
+            border-top: 3px solid var(--primary-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">NickJrWorld.store</a>
+                <nav>
+                    <ul>
+                        <li><a href="#game">Play Game</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#safety">Safety</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <section class="hero-section">
+                <h1>Nick Jr World Online Game</h1>
+                <p class="subtitle">Experience the magical world of Nick Jr with beloved characters in this engaging educational adventure designed for preschoolers and young children.</p>
+                <a href="#game" class="play-button">Start Playing Now</a>
+            </section>
+
+            <section id="game" class="game-container">
+                <div class="game-iframe-wrapper">
+                    <iframe 
+                        src="https://www.archive.play-games.com/games/swf/nick/NickJrWorld/1/" 
+                        class="game-iframe"
+                        title="Nick Jr World Online Game"
+                        loading="lazy"
+                        allowfullscreen>
+                        <div class="loading">Loading Nick Jr World...</div>
+                    </iframe>
+                </div>
+                <div style="text-align: center;">
+                    <p><strong>Click above to start your Nick Jr World adventure!</strong> The game may take a moment to load completely.</p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <div class="info-card game-details">
+                    <h2>Game Details</h2>
+                    <p>Nick Jr World is an interactive online adventure that brings together favorite characters from popular Nick Jr shows. This educational game is specifically designed for preschoolers aged 3-6 years old.</p>
+                    <p>Players can explore different themed areas, solve age-appropriate puzzles, and engage with familiar characters in a safe, nurturing digital environment that promotes learning through play.</p>
+                    <ul>
+                        <li>Age Range: 3-6 years old</li>
+                        <li>Platform: Web Browser (Flash-based)</li>
+                        <li>Genre: Educational Adventure</li>
+                        <li>Duration: 15-30 minutes per session</li>
+                        <li>Skills: Problem-solving, Memory, Creativity</li>
+                    </ul>
+                </div>
+
+                <div class="info-card features">
+                    <h2>Key Features</h2>
+                    <p>Nick Jr World offers a rich, interactive experience that combines entertainment with educational value, making learning fun and engaging for young minds.</p>
+                    <ul>
+                        <li>Multiple beloved Nick Jr characters</li>
+                        <li>Interactive storytelling elements</li>
+                        <li>Age-appropriate challenges and puzzles</li>
+                        <li>Colorful, engaging visual design</li>
+                        <li>Safe, child-friendly gameplay</li>
+                        <li>Educational content woven into gameplay</li>
+                        <li>No downloads required - play instantly</li>
+                        <li>Free to play online</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🌟</span>
+                    <h3>Educational Value</h3>
+                    <p>Develops critical thinking, problem-solving skills, and creativity through interactive gameplay designed by education experts.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🎨</span>
+                    <h3>Creative Play</h3>
+                    <p>Encourages imagination and creative expression through various activities, games, and character interactions.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">👶</span>
+                    <h3>Preschool Ready</h3>
+                    <p>Specifically designed for preschoolers with age-appropriate content, simple controls, and gentle learning progression.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h3>Safe Environment</h3>
+                    <p>Completely safe gaming environment with no external links, chat features, or inappropriate content for children.</p>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <div class="info-card safety">
+                    <h2>Parent & Safety Information</h2>
+                    <p>We prioritize child safety and educational value in every aspect of the Nick Jr World gaming experience. Parents can feel confident letting their children explore this digital playground.</p>
+                    <ul>
+                        <li>No personal information collection</li>
+                        <li>No chat or communication features</li>
+                        <li>Family-friendly content only</li>
+                        <li>No external advertisements</li>
+                        <li>Supervised play recommended for ages 3-4</li>
+                        <li>Screen time recommendations included</li>
+                    </ul>
+                </div>
+
+                <div class="info-card how-to-play">
+                    <h2>How to Play</h2>
+                    <p>Getting started with Nick Jr World is simple and intuitive, designed to be accessible for young children with minimal adult supervision needed.</p>
+                    <ul>
+                        <li>Click the play button above to launch the game</li>
+                        <li>Wait for the game to fully load (may take 30-60 seconds)</li>
+                        <li>Follow the on-screen instructions and prompts</li>
+                        <li>Click on characters and objects to interact</li>
+                        <li>Use simple mouse movements to navigate</li>
+                        <li>Enjoy exploring different areas and activities</li>
+                        <li>Take breaks every 15-20 minutes for healthy screen time</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 NickJrWorld.store - Free Online Games for Kids</p>
+                <p>Educational entertainment designed for preschoolers. Play responsibly and enjoy learning!</p>
+                <p><small>This website is not affiliated with Nickelodeon or Viacom. Game content is provided for educational purposes.</small></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Simple analytics tracking (replace with your preferred analytics)
+        function trackGamePlay() {
+            // Add your analytics code here
+            console.log('Game play initiated');
+        }
+
+        // Track when game iframe is clicked
+        document.querySelector('.game-iframe-wrapper').addEventListener('click', trackGamePlay);
+
+        // Add loading state management
+        const iframe = document.querySelector('.game-iframe');
+        iframe.addEventListener('load', function() {
+            console.log('Nick Jr World game loaded successfully');
+        });
+    </script>
+</body>
+</html>
